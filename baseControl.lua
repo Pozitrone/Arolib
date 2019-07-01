@@ -8,6 +8,11 @@ local gpu = compontent.gpu
 local sides = require("sides")
 local colors = require("colors")
 
+-- Globals
+runtime = true
+mobFarmSide = sides.north;
+laserDrillSide = 
+
 -- Utils
 function spacer()
     print("-------- <<A>> --------")
@@ -30,6 +35,9 @@ function colored(color, text)
     elseif color == "black" then
         print(gpu.setForeground(0x000000) .. text)
         gpu.setForeground(0xFFFFFF)
+    elseif color == "yellow" then
+        print(gpu.setForeground(0xFFFF00) .. text)
+        gpu.setForeground(0xFFFFFF)
     end
 end
 
@@ -44,7 +52,7 @@ function splitNumber(inputstr)
 end
 
 
-local function tps() -- TPS function by Nex4rius
+function tps() -- TPS function by Nex4rius
     local function time()
       local f = io.open("/tmp/TPS","w")
       f:write("test")
@@ -66,16 +74,23 @@ function emergencyShutdown()
     redstone.setBundledOutput(sides.down,   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
     term.clear()
     colored("red","!!! EMERGENCY SHUTDOWN !!!");
+    runtime = false
 end
 
 
 -- Initialize
-print("Initiating base control.")
-term.clear()
+function initialize()
+    print("Initiating base control.")
+    spacer()
+    os.sleep(5)
+    term.clear()
+end
+
+
 
 -- Mob Farming
 function resetMobfarm()
-    redstone.setBundledOutput(sides.down,   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+    redstone.setBundledOutput(mobFarmSide, [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
 end
 
 function spawnerSelection()
@@ -87,7 +102,7 @@ function spawnerSelection()
     print(" 7: Blaze           |  8: Shulker")
     print(" 9: Android         | 10: Pigman")
     print("11: Wither skeleton | 12: Cow")
-    print("13: Pink slime      | 14: ")
+    print("13: Pink slime      | 14: Maze slime")
     print("15:                 | 16: ")
     spacer()
     print("You can select up to three spawners by their IDs. Separate them by commas.")
@@ -102,8 +117,45 @@ function spawnerSelection()
         error("Too many spawners selected.")
     else
         resetMobfarm()
-        redstone.setBundledOutput(sides.down, {spawners = 15})
+        redstone.setBundledOutput(mobFarmSide, {spawners = 15})
+    end
+end
+
+-- Laser drills
+function resetLaserDrills()
+    redstone.setOutput(laserDrillSide, 0)
+end
+
+function startLaserDrills()
+    redstone.setOutput(laserDrillSide, 15)
+end
+
+-- Main runtime
+while runtime do
+    local tps = tps()
+
+    if tps < 2 then
+        colored("red", "TPS TOO LOW, INITIATING EMERGENCY SHUTDOWN IN")
+        colored("red", "3")
+        os.sleep(1)
+        term.clearLine()
+        colored("red", "2")
+        os.sleep(1)
+        term.clearLine()
+        colored("red", "1")
+        os.sleep(1)
+        term.clearLine()
+        emergencyShutdown()
     end
 
+    if tps < 15 then
+        colored("yellow", "TPS LOW, SHUTTING DOWN MOB FARM")
+        resetMobfarm()
+    end
+
+    if tpx < 10 then
+        colored("orange", "TPS VERY LOW, SHUTTING DOWN LASER DRILLS")
+
+        os.sleep(10)
 end
 
