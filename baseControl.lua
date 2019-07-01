@@ -85,6 +85,26 @@ function emergencyShutdown()
     gpu.setForeground(0xFFFFFF)
 end
 
+table.reduce = function (list, fn) 
+    local acc
+    for k, v in ipairs(list) do
+        if 1 == k then
+            acc = v
+        else
+            acc = fn(acc, v)
+        end 
+    end 
+    return acc 
+end
+
+
+function tableSum(table)
+    return table.reduce({1, 2, 3}, 
+        function (a, b)
+            return a + b
+        end
+    )
+end
 
 -- Initialize
 function initialize()
@@ -162,7 +182,26 @@ while runtime do
         colored("red", tps)
     end
 
+    spacer()
+    print("Service status:")
+    print("")
+    print("Mob farm: ")
+    if tableSum(redstone.getBundledOutput(mobFarmSide)) > 0 then
+        colored("green", "Operational.")
+    else
+        colored("red", "Stopped.")
 
+    print("Farms: ")
+    if tableSum(redstone.getBundledOutput(farmsSide)) > 0 then
+        colored("green", "Operational.")
+    else
+        colored("red", "Stopped.")
+
+    print("Laser drills: ")
+    if tableSum(redstone.getBundledOutput(laserDrillSide)) > 0 then
+        colored("green", "Operational.")
+    else
+        colored("red", "Stopped.")
     
 
     if tps < 15 then
@@ -176,7 +215,7 @@ while runtime do
     end
 
     if tps < 5 then
-        colored("orange", "TPS REALLY LOW, SHUTTING DOWN LASER DRILLS")
+        colored("red", "TPS REALLY LOW, SHUTTING DOWN LASER DRILLS")
         resetLaserDrills()
     end
 
