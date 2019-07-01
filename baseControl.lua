@@ -10,8 +10,10 @@ local colors = require("colors")
 
 -- Globals
 runtime = true
-mobFarmSide = sides.north;
-laserDrillSide = 
+mobFarmSide = sides.north
+laserDrillSide = sides.south
+farmsSide = sides.west
+width, height = gpu.getResolution()
 
 -- Utils
 function spacer()
@@ -37,6 +39,9 @@ function colored(color, text)
         gpu.setForeground(0xFFFFFF)
     elseif color == "yellow" then
         print(gpu.setForeground(0xFFFF00) .. text)
+        gpu.setForeground(0xFFFFFF)
+    elseif color == "orange" then
+        print(gpu.setForeground(0xFFAA00) .. text)
         gpu.setForeground(0xFFFFFF)
     end
 end
@@ -72,9 +77,12 @@ function emergencyShutdown()
     redstone.setBundledOutput(sides.east,   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
     redstone.setBundledOutput(sides.up,     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
     redstone.setBundledOutput(sides.down,   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
-    term.clear()
-    colored("red","!!! EMERGENCY SHUTDOWN !!!");
     runtime = false
+    term.clear()
+    gpu.setForeground(0xFF0000)
+    text = "!!! EMERGENCY SHUTDOWN !!!"
+    gpu.set(width / 2 - #text / 2, height / 2, text)
+    gpu.setForeground(0xFFFFFF)
 end
 
 
@@ -130,9 +138,47 @@ function startLaserDrills()
     redstone.setOutput(laserDrillSide, 15)
 end
 
+-- Farms
+function resetFarms()
+    redstone.setOutput(farmsSide, 0)
+end
+
+function startFarms()
+    redstone.setOutput(farmsSide, 15)
+end
+
+
 -- Main runtime
 while runtime do
     local tps = tps()
+    print("Current Ticks Per Second:")
+    if tps > 15 then
+        colored("green", tps)
+    elseif tps > 10 then
+        colored("yellow", tps)
+    elseif tps > 5 then
+        colored("orange", tps)
+    else
+        colored("red", tps)
+    end
+
+
+    
+
+    if tps < 15 then
+        colored("yellow", "TPS LOW, SHUTTING DOWN MOB FARM")
+        resetMobfarm()
+    end
+
+    if tps < 10 then
+        colored("orange", "TPS VERY LOW, SHUTTING DOWN FARMS")
+        resetFarms()
+    end
+
+    if tps < 5 then
+        colored("orange", "TPS REALLY LOW, SHUTTING DOWN LASER DRILLS")
+        resetLaserDrills()
+    end
 
     if tps < 2 then
         colored("red", "TPS TOO LOW, INITIATING EMERGENCY SHUTDOWN IN")
@@ -147,14 +193,6 @@ while runtime do
         term.clearLine()
         emergencyShutdown()
     end
-
-    if tps < 15 then
-        colored("yellow", "TPS LOW, SHUTTING DOWN MOB FARM")
-        resetMobfarm()
-    end
-
-    if tpx < 10 then
-        colored("orange", "TPS VERY LOW, SHUTTING DOWN LASER DRILLS")
 
         os.sleep(10)
 end
