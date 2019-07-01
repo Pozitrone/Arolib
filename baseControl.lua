@@ -1,11 +1,37 @@
 -- All redstone has the same behavior -> Redstone off === farm/thing off
 -- BaseControl by Arothe, https://toastynetworks.net/
 
+-- Requirements
+local term = require("term")
+local component = require("component")
+local gpu = compontent.gpu
+
 -- Utils
 function spacer()
     print("-------- <<A>> --------")
 end
 
+
+function colored(color, text)
+    if color == "red" then
+        print(gpu.setForeground(0xFF0000) .. text)
+        gpu.setForeground(0xFFFFFF)
+    elseif color == "blue" then
+        print(gpu.setForeground(0x0000FF) .. text)
+        gpu.setForeground(0xFFFFFF)
+    elseif color == "green" then
+        print(gpu.setForeground(0x0FF00) .. text)
+        gpu.setForeground(0xFFFFFF)
+    elseif color == "white" then
+        print(gpu.setForeground(0xFFFFFF) .. text)
+        gpu.setForeground(0xFFFFFF)
+    elseif color == "black" then
+        print(gpu.setForeground(0x000000) .. text)
+        gpu.setForeground(0xFFFFFF)
+    end
+end
+
+    
 function splitNumber(inputstr)
     sep = ","
     local t={}
@@ -16,17 +42,37 @@ function splitNumber(inputstr)
 end
 
 
+local function tps() -- TPS function by Nex4rius
+    local function time()
+      local f = io.open("/tmp/TPS","w")
+      f:write("test")
+      f:close()
+      return(require("filesystem").lastModified("/tmp/TPS"))
+    end
+    local realTimeOld = time()
+    os.sleep(1)
+    return 20000 / (time() - realTimeOld)
+  end
+
+
+function emergencyShutdown()
+    redstone.setBundledOutput(sides.west,   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+    redstone.setBundledOutput(sides.north,  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+    redstone.setBundledOutput(sides.south,  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+    redstone.setBundledOutput(sides.east,   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+    redstone.setBundledOutput(sides.up,     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+    redstone.setBundledOutput(sides.down,   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+    term.clear()
+    colored("red","!!! EMERGENCY SHUTDOWN !!!");
+end
+
+
 -- Initialize
 print("Initiating base control.")
 term.clear()
 
 -- Mob Farming
 function resetMobfarm()
-    redstone.setBundledOutput(sides.west,   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
-    redstone.setBundledOutput(sides.north,  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
-    redstone.setBundledOutput(sides.south,  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
-    redstone.setBundledOutput(sides.east,   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
-    redstone.setBundledOutput(sides.up,     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
     redstone.setBundledOutput(sides.down,   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
 end
 
@@ -56,6 +102,6 @@ function spawnerSelection()
         resetMobfarm()
         redstone.setBundledOutput(sides.down, {spawners = 15})
     end
-    
+
 end
 
