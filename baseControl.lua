@@ -5,6 +5,8 @@
 local term = require("term")
 local component = require("component")
 local gpu = compontent.gpu
+local sides = require("sides")
+local colors = require("colors")
 
 -- Utils
 function spacer()
@@ -34,7 +36,7 @@ end
     
 function splitNumber(inputstr)
     sep = ","
-    local t={}
+    local t = {}
     for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
             table.insert(t, tonumber(str))
     end
