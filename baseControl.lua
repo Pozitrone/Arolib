@@ -7,9 +7,11 @@ local component = require("component")
 local gpu = compontent.gpu
 local sides = require("sides")
 local colors = require("colors")
+local event = require("event")
 
 -- Globals
 runtime = true
+entranceSid = sides.east
 mobFarmSide = sides.north
 laserDrillSide = sides.south
 farmsSide = sides.west
@@ -76,7 +78,7 @@ function emergencyShutdown()
     redstone.setBundledOutput(sides.south,  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
     redstone.setBundledOutput(sides.east,   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
     redstone.setBundledOutput(sides.up,     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
-    redstone.setBundledOutput(sides.down,   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+    redstone.setBundledOutput(sides.down,   [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,15]) -- Black on Down is emergency channel
     runtime = false
     term.clear()
     gpu.setForeground(0xFF0000)
@@ -110,10 +112,26 @@ end
 function initialize()
     print("Initiating base control.")
     spacer()
+
+    print("Reseting Emergency channel...")
+    redstone.setBundledOutput(sides.down, colors.black, 0)
+    os.sleep(1)
+
+    print("Reseting Laser Drills...")
+    resetLaserDrills()
+    os.sleep(1)
+
+    print("Reseting Farms...")
+    resetFarms()
+    os.sleep(1)
+
+    print("Reseting Mob farm...")
+    resetMobfarm()
+
+    spacer()
     os.sleep(5)
     term.clear()
 end
-
 
 
 -- Mob Farming
@@ -235,4 +253,12 @@ while runtime do
 
         os.sleep(10)
 end
+
+-- Emergency shutdown button
+event.listen("redstone_changed", function(address, side, oldValue, newValue, color)
+    if color == colors.black then
+        emergencyShutdown()
+    end
+end
+)
 
