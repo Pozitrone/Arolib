@@ -11,6 +11,8 @@ local event = require("event")
 
 -- Globals
 runtime = true
+inputSide = sides.top
+emergencySide = sides.down
 entranceSid = sides.east
 mobFarmSide = sides.north
 laserDrillSide = sides.south
@@ -158,9 +160,9 @@ function spawnerSelection()
     spawners = splitNumber(input)
 
     if #spawners == 0 then
-        error("No spawners selected.")
+        colored("red", "No spawners selected.")
     elseif #spawners > 3 then
-        error("Too many spawners selected.")
+        colored("red", "Too many spawners selected.")
     else
         resetMobfarm()
         for spawner in spawners do
