@@ -163,7 +163,9 @@ function spawnerSelection()
         error("Too many spawners selected.")
     else
         resetMobfarm()
-        redstone.setBundledOutput(mobFarmSide, {spawners = 15})
+        for spawner in spawners do
+            redstone.setBundledOutput(mobFarmSide, spawner, 15)
+        end
     end
 end
 
