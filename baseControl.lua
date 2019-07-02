@@ -1,7 +1,26 @@
 -- All redstone has the same behavior -> Redstone off === farm/thing off
 -- BaseControl by Arothe, https://toastynetworks.net/
+colors
+------ colors: White Orange Magenta LightBlue Yellow Lime Pink Gray LightGray(silver) Cyan Purple Blue Brown Green Red Black
+---- inputSide
+  -- [,,,,,,,,,,,,,,,]
 
--- Requirements
+---- outputSide
+  -- [Level 3 doors,,,,Level 2 doors,,,,,,,,,,Level 1 doors,Emergency shutdown alert line]
+
+--- entranceSide
+  -- [,,,,,,,,,,,,,,,]
+
+---- mobFarmSide
+  -- [,,,,,,,,,,,,,,,]
+
+---- laserDrillSide
+  -- [,,,,,,,,,,,,,,,]
+
+---- farmsSide
+  -- [,,,,,,,,,,,,,,,]
+
+---- Requirements
 local term = require("term")
 local component = require("component")
 local gpu = compontent.gpu
@@ -12,7 +31,7 @@ local event = require("event")
 -- Globals
 runtime = true
 inputSide = sides.top
-emergencySide = sides.down
+outputSide = sides.down
 entranceSid = sides.east
 mobFarmSide = sides.north
 laserDrillSide = sides.south
