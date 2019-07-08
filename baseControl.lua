@@ -83,7 +83,7 @@ end
 function tps() -- TPS function by Nex4rius
     local function time()
       local f = io.open("/tmp/TPS","w")
-      f:write("test")
+      f:write("Woof!")
       f:close()
       return(require("filesystem").lastModified("/tmp/TPS"))
     end
