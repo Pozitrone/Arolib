@@ -22,8 +22,9 @@ local rs = component.redstone
 -- Functions
 
 function help()
-    print("tps() - calculates TPS")
-    print("farmsControl() - outputs redstone in the front if TPS > 15")
+    print("tps(): number - calculates TPS")
+    print("farmsControl(): void - outputs redstone in the front if TPS > 15")
+    print("colortps(tps: number): void - prints out tps in a color")
     print("help() - shows this list")
 end
 
@@ -48,18 +49,32 @@ function tps() -- TPS function by Nex4rius
 end
 
 
-
 function farmsControl() -- Outputs redstone from the front, when tps > 15, else stops the signal. Checks every 10 seconds.
     while true do
         local tps = tps()
         if tps > 15 then
-            print("TPS status nominal, farms running. " + tps)
+            print("TPS status nominal, farms running.")
+            colortps(tps)
             rs.setOutput(sides.front, 15)
         else
-            print("TPS are too low, farm are not running! "  + tps)
+            print("TPS are too low, farm are not running!")
+            colortps(tps)
             rs.setOutput(sides.front, 0)
         end
         os.sleep(10)
     end
+end
+
+
+function colortps(tps) -- Prints out TPS in according color
+    if tps > 15 then
+        gpu.setForeground(colors.green)
+    else if tps > 5 then
+        gpu.setForeground(colors.orange)
+    else
+        gpu.setForeground(colors.red)
+    end
+    print(tps)
+    gpu.setForeground(colors.white)
 end
         
