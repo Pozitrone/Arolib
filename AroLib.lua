@@ -82,14 +82,14 @@ end
 
 function arolib.colortps(tps) -- Prints out TPS in according color
     if tps > 15 then
-        gpu.setForeground(colors.green)
+        gpu.setForeground(clrGreen)
     elseif tps > 5 then
-        gpu.setForeground(colors.orange)
+        gpu.setForeground(clrOrange)
     else
-        gpu.setForeground(colors.red)
+        gpu.setForeground(clrRed)
     end
     print(tps)
-    gpu.setForeground(colors.white)
+    gpu.setForeground(clrWhite)
 end
 
 
