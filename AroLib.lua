@@ -16,12 +16,24 @@ local event = require("event")
 
 -- Components
 
-local gpu = compontent.gpu
+local gpu = component.gpu
 local rs = component.redstone
+
+-- Colors
+
+local red = 0xFF0000
+local blue = 0x0000FF
+local green = 0x0FF00
+local white = 0xFFFFFF
+local black = 0x000000
+local yellow = 0xFFFF00
+local orange = 0xFFAA00
 
 -- Functions
 
-function help()
+local arolib = {}
+
+function arolib.help()
     print("tps(): number - calculates TPS")
     print("farmsControl(): void - outputs redstone in the front if TPS > 15")
     print("colortps(tps: number): void - prints out tps in a color")
@@ -29,7 +41,7 @@ function help()
 end
 
 
-function tps() -- TPS function by Nex4rius
+function arolib.tps() -- TPS function by Nex4rius
 
     local function time()
         local f = io.open("/tmp/TPS","w")
@@ -49,7 +61,7 @@ function tps() -- TPS function by Nex4rius
 end
 
 
-function farmsControl() -- Outputs redstone from the front, when tps > 15, else stops the signal. Checks every 10 seconds.
+function arolib.farmsControl() -- Outputs redstone from the front, when tps > 15, else stops the signal. Checks every 10 seconds.
     while true do
         local tps = tps()
         if tps > 15 then
@@ -66,10 +78,10 @@ function farmsControl() -- Outputs redstone from the front, when tps > 15, else 
 end
 
 
-function colortps(tps) -- Prints out TPS in according color
+function arolib.colortps(tps) -- Prints out TPS in according color
     if tps > 15 then
         gpu.setForeground(colors.green)
-    else if tps > 5 then
+    elseif tps > 5 then
         gpu.setForeground(colors.orange)
     else
         gpu.setForeground(colors.red)
@@ -77,4 +89,6 @@ function colortps(tps) -- Prints out TPS in according color
     print(tps)
     gpu.setForeground(colors.white)
 end
+
+return arolib
         
