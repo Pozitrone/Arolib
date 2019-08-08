@@ -1,4 +1,4 @@
--- wget -f 'https://github.com/Pozitrone/Base-Control/blob/master/AroLib.lua' /home/arolib.lua
+-- wget -f 'https://raw.githubusercontent.com/Pozitrone/Base-Control/master/AroLib.lua' /home/arolib.lua
 
 -- import these functions using
 -- arolib = require("arolib")
@@ -63,17 +63,17 @@ function arolib.tps() -- TPS function by Nex4rius
 end
 
 
-function arolib.farmsControl() -- Outputs redstone from the front, when tps > 15, else stops the signal. Checks every 10 seconds.
+function arolib.farmsControl() -- Outputs redstone from the back, when tps > 15, else stops the signal. Checks every 10 seconds.
     while true do
         local tps = tps()
         if tps > 15 then
             print("TPS status nominal, farms running.")
             colortps(tps)
-            rs.setOutput(sides.front, 15)
+            rs.setOutput(sides.back, 15)
         else
             print("TPS are too low, farm are not running!")
             colortps(tps)
-            rs.setOutput(sides.front, 0)
+            rs.setOutput(sides.back, 0)
         end
         os.sleep(10)
     end
@@ -91,6 +91,8 @@ function arolib.colortps(tps) -- Prints out TPS in according color
     print(tps)
     gpu.setForeground(colors.white)
 end
+
+
 
 return arolib
         
