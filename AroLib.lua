@@ -22,14 +22,14 @@ local gpu = component.gpu
 local rs = component.redstone
 
 -- Colors
-
-local red = 0xFF0000
-local blue = 0x0000FF
-local green = 0x0FF00
-local white = 0xFFFFFF
-local black = 0x000000
-local yellow = 0xFFFF00
-local orange = 0xFFAA00
+local clr = {}
+local clr.red = 0xFF0000
+local clr.blue = 0x0000FF
+local clr.green = 0x0FF00
+local clr.white = 0xFFFFFF
+local clr.black = 0x000000
+local clr.yellow = 0xFFFF00
+local clr.orange = 0xFFAA00
 
 -- Functions
 
