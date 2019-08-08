@@ -20,6 +20,7 @@ local event = require("event")
 
 local gpu = component.gpu
 local rs = component.redstone
+local core = component.draconic_rf_storage
 
 -- Colors
 local clrRed = 0xFF0000
@@ -94,7 +95,6 @@ end
 
 
 function arolib.draconicCore()
-    local core = component.draconic_rf_storage
     while true do
         print("Energy stored: ")
         print(core.getEnergyStored())
