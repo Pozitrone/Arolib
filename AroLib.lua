@@ -110,6 +110,8 @@ function arolib.draconicCore()
         end
         print(rate)
         gpu.setForeground(clr.white)
+        os.sleep(1)
+    end
 end
 
 return arolib
