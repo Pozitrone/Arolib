@@ -94,5 +94,23 @@ end
 
 
 
+function arolib.draconicCore()
+    local core = component.draconic_rf_storage
+    while true do
+        print("Energy stored: ")
+        print(core.getEnergyStored())
+        print("Maximum energy: ")
+        print(core.getMaxEnergyStored())
+        print("Transfering: ")
+        local rate = core.getTransferPerTick()
+        if rate > 0 then 
+            gpu.setForeground(clr.green)
+        else
+            gpu.setForeground(clr.red)
+        end
+        print(rate)
+        gpu.setForeground(clr.white)
+end
+
 return arolib
         
