@@ -22,13 +22,13 @@ local gpu = component.gpu
 local rs = component.redstone
 
 -- Colors
-local clr-red = 0xFF0000
-local clr-blue = 0x0000FF
-local clr-green = 0x0FF00
-local clr-white = 0xFFFFFF
-local clr-black = 0x000000
-local clr-yellow = 0xFFFF00
-local clr-orange = 0xFFAA00
+local clrRed = 0xFF0000
+local clrBlue = 0x0000FF
+local clrGreen = 0x0FF00
+local clrWhite = 0xFFFFFF
+local clrBlack = 0x000000
+local clrYellow = 0xFFFF00
+local clrOrange = 0xFFAA00
 
 -- Functions
 
@@ -103,12 +103,12 @@ function arolib.draconicCore()
         print("Transfering: ")
         local rate = core.getTransferPerTick()
         if rate > 0 then 
-            gpu.setForeground(clr-green)
+            gpu.setForeground(clrGreen)
         else
-            gpu.setForeground(clr-red)
+            gpu.setForeground(clrRed)
         end
         print(rate)
-        gpu.setForeground(clr-white)
+        gpu.setForeground(clrWhite)
         os.sleep(1)
     end
 end
