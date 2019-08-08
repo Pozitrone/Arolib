@@ -1,3 +1,5 @@
+-- wget -f 'https://github.com/Pozitrone/Base-Control/blob/master/AroLib.lua' /home/arolib.lua
+
 -- import these functions using
 -- arolib = require("arolib")
 
