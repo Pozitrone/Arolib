@@ -96,7 +96,11 @@ end
 
 
 function arolib.draconicCore()
+    print("Please, set resolution to 40x8")
+    print("Booting in 10 seconds...")
+    os.sleep(10)
     gpu.setResolution(40,8);
+    term.clear()
     while true do
         print("Energy stored: ")
         print(core.getEnergyStored())
