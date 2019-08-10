@@ -39,6 +39,7 @@ function arolib.help()
     print("tps(): number - calculates TPS")
     print("farmsControl(): void - outputs redstone in the front if TPS > 15")
     print("colortps(tps: number): void - prints out tps in a color")
+    print("draconicCore(): void - constant status of Draconic storage core")
     print("help() - shows this list")
 end
 
@@ -96,6 +97,7 @@ end
 
 function arolib.draconicCore()
     while true do
+        term.clear()
         print("Energy stored: ")
         print(core.getEnergyStored())
         print("Maximum energy: ")
