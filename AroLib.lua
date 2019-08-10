@@ -96,8 +96,8 @@ end
 
 
 function arolib.draconicCore()
+    gpu.setResolution(40,8);
     while true do
-        term.clear()
         print("Energy stored: ")
         print(core.getEnergyStored())
         print("Maximum energy: ")
