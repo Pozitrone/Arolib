@@ -94,12 +94,11 @@ function arolib.colortps(tps) -- Prints out TPS in according color
 end
 
 
-
 function arolib.draconicCore()
     print("Please, set resolution to 40x8")
     print("Booting in 10 seconds...")
     os.sleep(10)
-    gpu.setResolution(40,8);
+    require("component").gpu.setResolution(40,8);
     term.clear()
     while true do
         print("Energy stored: ")
