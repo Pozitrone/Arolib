@@ -119,7 +119,7 @@ end
 
 function arolib.reset()
     require("component").gpu.setResolution(160,50);
-    term.clear()
+    require("term").clear()
 end
 
 return arolib
