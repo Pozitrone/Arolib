@@ -95,9 +95,8 @@ end
 
 
 function arolib.draconicCore()
-    print("Please, set resolution to 40x8")
-    print("Booting in 10 seconds...")
-    os.sleep(10)
+    print("use arolib.reset() to reset the Resolution back.");
+    os.sleep(4)
     require("component").gpu.setResolution(40,8);
     term.clear()
     while true do
@@ -116,6 +115,11 @@ function arolib.draconicCore()
         gpu.setForeground(clrWhite)
         os.sleep(1)
     end
+end
+
+function arolib.reset()
+    require("component").gpu.setResolution(160,50);
+    term.clear()
 end
 
 return arolib
