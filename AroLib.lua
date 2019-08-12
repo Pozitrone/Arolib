@@ -82,16 +82,17 @@ function arolib.farmsControl() -- Outputs redstone from the back, when tps > 15,
 end
 
 
-function arolib.colortps(tps) -- Prints out TPS in according color
+function arolib.colortps() -- Prints out TPS in according color
+    tps = arolib.tps()
     if tps > 15 then
-        gpu.setForeground(clrGreen)
+        require("component").gpu.setForeground(clrGreen)
     elseif tps > 5 then
-        gpu.setForeground(clrOrange)
+        require("component").gpu.setForeground(clrOrange)
     else
-        gpu.setForeground(clrRed)
+        require("component").gpu.setForeground(clrRed)
     end
     print(tps)
-    gpu.setForeground(clrWhite)
+    require("component").gpu.setForeground(clrWhite)
 end
 
 
