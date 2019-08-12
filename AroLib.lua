@@ -132,6 +132,7 @@ function arolib.draconicCore()
         end
     ) then
         print("An error occured. Please, make sure a draconic energy storage core is connected.")
+    end
 end
 
 function arolib.reset()
