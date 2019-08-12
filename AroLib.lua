@@ -101,9 +101,9 @@ function arolib.draconicCore()
         print("Transfering: ")
         local rate = core.getTransferPerTick()
         if rate > 0 then 
-            gpu.setForeground(clrGreen)
+            require("component").gpu.setForeground(clrGreen)
         else
-            gpu.setForeground(clrRed)
+            require("component").gpu.setForeground(clrRed)
         end
         print(rate)
         require("component").gpu.setForeground(clrWhite)
