@@ -40,6 +40,7 @@ function arolib.help()
     print("farmsControl(): void - outputs redstone in the front if TPS > 15")
     print("colortps(tps: number): void - prints out tps in a color")
     print("draconicCore(): void - constant status of Draconic storage core")
+    print("reset(): void - resets the resolution")
     print("help() - shows this list")
 end
 
