@@ -97,7 +97,7 @@ end
 function arolib.draconicCore()
     print("use arolib.reset() to reset the Resolution back.");
     os.sleep(4)
-    require("component").gpu.setResolution(40,6);
+    require("component").gpu.setResolution(40,7);
     require("term").clear()
     while true do
         print("Energy stored: ")
