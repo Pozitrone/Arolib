@@ -10,17 +10,9 @@
 
 -- Imports
 
-local term = require("term")
-local component = require("component")
 local sides = require("sides")
 local colors = require("colors")
 local event = require("event")
-
--- Components
-
-local gpu = component.gpu
-local rs = component.redstone
-local core = component.draconic_rf_storage
 
 -- Colors
 local clrRed = 0xFF0000
@@ -71,11 +63,11 @@ function arolib.farmsControl() -- Outputs redstone from the back, when tps > 15,
         if tps > 15 then
             print("TPS status nominal, farms running.")
             colortps(tps)
-            rs.setOutput(sides.back, 15)
+            require("component").redstone.setOutput(sides.back, 15)
         else
             print("TPS are too low, farm are not running!")
             colortps(tps)
-            rs.setOutput(sides.back, 0)
+            require("component").redstone.setOutput(sides.back, 0)
         end
         os.sleep(10)
     end
@@ -114,7 +106,7 @@ function arolib.draconicCore()
             gpu.setForeground(clrRed)
         end
         print(rate)
-        gpu.setForeground(clrWhite)
+        require("component").gpu.setForeground(clrWhite)
         os.sleep(1)
     end
 end
