@@ -89,6 +89,7 @@ end
 
 
 function arolib.draconicCore()
+    local core = require("component").draconic_rf_storage
     print("use arolib.reset() to reset the Resolution back.");
     os.sleep(4)
     require("component").gpu.setResolution(40,7);
