@@ -148,14 +148,20 @@ end
 
 function arolib.extremeReactorStats()
     local gpu = require("component").gpu
+    local term = require("term")
+
+    term.clear()
+    
     gpu.setBackgound(0xD2D2D2)
     gpu.fill(3,1,74,3," ")
     gpu.fill(87,1,74,3," ")
 
     gpu.fill(7,5,46,3," ")
 
-    gpu.fill(7,8,20,40," ")
-    gpu.fill(33,8,20,40," ")
+    gpu.fill(7,9,20,40," ")
+    gpu.fill(33,9,20,40," ")
+
+    os.sleep(10)
 end
 return arolib
         
