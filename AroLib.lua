@@ -15,13 +15,13 @@ local colors = require("colors")
 local event = require("event")
 
 -- Colors
-local clrRed = 0xFF0000
-local clrBlue = 0x0000FF
-local clrGreen = 0x0FF00
-local clrWhite = 0xFFFFFF
-local clrBlack = 0x000000
-local clrYellow = 0xFFFF00
-local clrOrange = 0xFFAA00
+clrRed = 0xFF0000
+clrBlue = 0x0000FF
+clrGreen = 0x0FF00
+clrWhite = 0xFFFFFF
+clrBlack = 0x000000
+clrYellow = 0xFFFF00
+clrOrange = 0xFFAA00
 
 -- Functions
 
@@ -146,5 +146,11 @@ function arolib.reset()
     end
 end
 
+function arolib.extremeReactorStats()
+    local gpu = require("component").gpu
+    
+    
+
+end
 return arolib
         
