@@ -150,6 +150,36 @@ end
 function arolib.extremeReactorStats()
     local term = require("term")
     local gpu = require("component").gpu
+    local reactor = require("component").br_reactor
+
+    local function tempBar(temp,x,y)
+        local bg = gpu.getBackground();
+        tempStage = math.floor(temp/250);
+        for i = 0, tempStage, 1 do
+            if tempStage >= 0 then
+                gpu.setBackground(0xFF0000)
+            elseif tempStage >= 5 then
+                gpu.setBackground(0xFF2400)
+            elseif tempStage >= 10 then
+                gpu.setBackground(0xFF4900)
+            elseif tempStage >= 15 then
+                gpu.setBackground(0xFF6D00)
+            elseif tempStage >= 20 then
+                gpu.setBackground(0xCC9200)
+            elseif tempStage >= 25 then
+                gpu.setBackground(0xCCB600)
+            elseif tempStage >= 30 then
+                gpu.setBackground(0xCCDB00)
+            elseif tempStage >= 35 then
+                gpu.setBackground(0xCCFF00)
+            else
+                gpu.setBackground(0x00FF00)
+            end
+            gpu.fill(x,y-40+i,20,1," ")
+        end
+
+        gpu.setBackground(bg)
+    end
 
     term.clear()
     
@@ -170,7 +200,15 @@ function arolib.extremeReactorStats()
     gpu.fill(108,36,44,13," ") --button
     --end button
 
+    --Core temperature
+    local coreTemp = reactor.getFuelTemperature()
+    tempBar(coreTemp,7,9)
+
+    local casingTemp = reactor.getCasingTemperature()
+    tempBar(casingTemp,33,9)
     os.sleep(10)
 end
+
+
 return arolib
         
