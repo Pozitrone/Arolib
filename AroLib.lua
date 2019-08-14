@@ -25,8 +25,7 @@ clrOrange = 0xFFAA00
 
 -- Functions
 
-function tempBar(temp,x,y,maxtemp)
-    local gpu = require("component").gpu
+function tempBar(temp,x,y,maxtemp, gpu)
     local bg = gpu.getBackground();
     tempStage = math.floor(temp/(maxtemp/40));
     for i = 0, tempStage, 1 do
@@ -206,10 +205,10 @@ function arolib.extremeReactorStats()
 
     --Core temperature
     local coreTemp = reactor.getFuelTemperature()
-    tempBar(coreTemp,7,9,2000)
+    tempBar(coreTemp,7,9,2000,gpu)
 
     local casingTemp = reactor.getCasingTemperature()
-    tempBar(casingTemp,33,9,2000)
+    tempBar(casingTemp,33,9,2000,gpu)
     os.sleep(10)
 end
 
