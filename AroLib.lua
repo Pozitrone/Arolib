@@ -186,7 +186,7 @@ function arolib.extremeReactorStats()
     while true do
         
         term.clear()
-        print("iteration: " + iteration)
+        print("iteration: " .. iteration)
         gpu.setBackground(0xD2D2D2)
 
         gpu.fill(3,1,74,3," ") --reactor name
