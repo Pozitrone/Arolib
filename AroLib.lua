@@ -154,8 +154,11 @@ function arolib.extremeReactorStats()
 
     local function tempBar(temp,x,y,maxtemp)
         local bg = gpu.getBackground();
+
         tempStage = math.floor(temp/(maxtemp/40));
+
         for i = 0, tempStage, 1 do
+            print("test")
             if tempStage >= 0 then
                 gpu.setBackground(0xFF0000)
             elseif tempStage >= 5 then
@@ -175,6 +178,7 @@ function arolib.extremeReactorStats()
             else
                 gpu.setBackground(0x00FF00)
             end
+
             gpu.fill(x,y-40+i,20,1," ")
         end
 
