@@ -148,8 +148,8 @@ function arolib.reset()
 end
 
 function arolib.extremeReactorStats()
-    local gpu = require("component").gpu
     local term = require("term")
+    local gpu = require("component").gpu
 
     term.clear()
     
