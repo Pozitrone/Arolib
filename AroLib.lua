@@ -25,6 +25,36 @@ clrOrange = 0xFFAA00
 
 -- Functions
 
+function tempBar(temp,x,y,maxtemp)
+    local bg = gpu.getBackground();
+    tempStage = math.floor(temp/(maxtemp/40));
+    for i = 0, tempStage, 1 do
+        if tempStage >= 0 then
+            gpu.setBackground(0xFF0000)
+        elseif tempStage >= 5 then
+            gpu.setBackground(0xFF2400)
+        elseif tempStage >= 10 then
+            gpu.setBackground(0xFF4900)
+        elseif tempStage >= 15 then
+            gpu.setBackground(0xFF6D00)
+        elseif tempStage >= 20 then
+            gpu.setBackground(0xCC9200)
+        elseif tempStage >= 25 then
+            gpu.setBackground(0xCCB600)
+        elseif tempStage >= 30 then
+            gpu.setBackground(0xCCDB00)
+        elseif tempStage >= 35 then
+            gpu.setBackground(0xCCFF00)
+        else
+            gpu.setBackground(0x00FF00)
+        end
+        gpu.fill(x,y-40+i,20,1," ")
+    end
+    gpu.setBackground(bg)
+end
+
+-- Library
+
 local arolib = {}
 
 function arolib.help()
@@ -152,37 +182,7 @@ function arolib.extremeReactorStats()
     local gpu = require("component").gpu
     local reactor = require("component").br_reactor
 
-    local function tempBar(temp,x,y,maxtemp)
-        local bg = gpu.getBackground();
-
-        tempStage = math.floor(temp/(maxtemp/40));
-
-        for i = 0, tempStage, 1 do
-            if tempStage >= 0 then
-                gpu.setBackground(0xFF0000)
-            elseif tempStage >= 5 then
-                gpu.setBackground(0xFF2400)
-            elseif tempStage >= 10 then
-                gpu.setBackground(0xFF4900)
-            elseif tempStage >= 15 then
-                gpu.setBackground(0xFF6D00)
-            elseif tempStage >= 20 then
-                gpu.setBackground(0xCC9200)
-            elseif tempStage >= 25 then
-                gpu.setBackground(0xCCB600)
-            elseif tempStage >= 30 then
-                gpu.setBackground(0xCCDB00)
-            elseif tempStage >= 35 then
-                gpu.setBackground(0xCCFF00)
-            else
-                gpu.setBackground(0x00FF00)
-            end
-
-            gpu.fill(x,y-40+i,20,1," ")
-        end
-
-        gpu.setBackground(bg)
-    end
+    
 
     term.clear()
     
