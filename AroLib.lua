@@ -26,6 +26,7 @@ clrOrange = 0xFFAA00
 -- Functions
 
 function tempBar(temp,x,y,maxtemp)
+    local gpu = require("component").gpu
     local bg = gpu.getBackground();
     tempStage = math.floor(temp/(maxtemp/40));
     for i = 0, tempStage, 1 do
