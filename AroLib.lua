@@ -162,9 +162,12 @@ function arolib.extremeReactorStats()
     gpu.fill(7,9,20,40," ") --Core temp bar
     gpu.fill(33,9,20,40," ") --Casing temp bar
 
-
     gpu.fill(60,36,40,13," ") --battery main
     gpu.fill(100,41,2,3," ") --battery bit
+
+    --button
+    gpu.fill(108,36,44,13," ") --button
+    --end button
 
     os.sleep(10)
 end
