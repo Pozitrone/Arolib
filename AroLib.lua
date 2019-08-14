@@ -181,11 +181,11 @@ function arolib.extremeReactorStats()
     local term = require("term")
     local gpu = require("component").gpu
     local reactor = require("component").br_reactor
-
+    local iteration = 0;
     while true do
-    
-        term.clear()
         
+        term.clear()
+        print("iteration: " + iteration)
         gpu.setBackground(0xD2D2D2)
 
         gpu.fill(3,1,74,3," ") --reactor name
@@ -210,6 +210,7 @@ function arolib.extremeReactorStats()
         local casingTemp = reactor.getCasingTemperature()
         tempBar(casingTemp,33,9,2000)
         os.sleep(1)
+        iteration = iteration + 1
     end
 end
 
