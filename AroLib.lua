@@ -153,7 +153,7 @@ function arolib.extremeReactorStats()
 
     term.clear()
     
-    gpu.setBackgound(0xD2D2D2)
+    gpu.setBackground(0xD2D2D2)
 
     gpu.fill(3,1,74,3," ") --reactor name
     gpu.fill(87,1,74,3," ") --reactor type
