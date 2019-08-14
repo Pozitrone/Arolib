@@ -182,6 +182,7 @@ function arolib.extremeReactorStats()
     local gpu = require("component").gpu
     local reactor = require("component").br_reactor
     local iteration = 0;
+
     while true do
         
         term.clear()
@@ -193,8 +194,8 @@ function arolib.extremeReactorStats()
 
         gpu.fill(7,5,46,3," ") --Temperatures
 
-        --gpu.fill(7,9,20,40," ") --Core temp bar
-        --gpu.fill(33,9,20,40," ") --Casing temp bar
+        gpu.fill(7,9,20,40," ") --Core temp bar
+        gpu.fill(33,9,20,40," ") --Casing temp bar
 
         gpu.fill(60,36,40,13," ") --battery main
         gpu.fill(100,41,2,3," ") --battery bit
@@ -204,10 +205,10 @@ function arolib.extremeReactorStats()
         --end button
 
         --Core temperature
-        local coreTemp = reactor.getFuelTemperature()
+        coreTemp = reactor.getFuelTemperature()
         tempBar(coreTemp,7,9,2000)
 
-        local casingTemp = reactor.getCasingTemperature()
+        casingTemp = reactor.getCasingTemperature()
         tempBar(casingTemp,33,9,2000)
         os.sleep(1)
         iteration = iteration + 1
