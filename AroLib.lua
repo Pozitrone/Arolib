@@ -48,7 +48,7 @@ function tempBar(temp,x,y,maxtemp, gpu)
         else
             gpu.setBackground(0x00FF00)
         end
-        gpu.fill(x,y-40+i,20,1," ")
+        gpu.fill(x,y+40-i,20,1," ")
     end
     gpu.setBackground(bg)
 end
@@ -205,10 +205,10 @@ function arolib.extremeReactorStats()
 
     --Core temperature
     local coreTemp = reactor.getFuelTemperature()
-    tempBar(coreTemp,7,9,2000,gpu)
+    tempBar(coreTemp,7,9,2000)
 
     local casingTemp = reactor.getCasingTemperature()
-    tempBar(casingTemp,33,9,2000,gpu)
+    tempBar(casingTemp,33,9,2000)
     os.sleep(10)
 end
 
