@@ -186,7 +186,6 @@ function arolib.extremeReactorStats()
     while true do
         gpu.setBackground(0x000000)
         term.clear()
-        print("iteration: " .. tostring(iteration))
         gpu.setBackground(0xD2D2D2)
 
         gpu.fill(3,1,74,3," ") --reactor name
@@ -211,7 +210,6 @@ function arolib.extremeReactorStats()
         casingTemp = reactor.getCasingTemperature()
         tempBar(casingTemp,33,9,2000)
         os.sleep(1)
-        iteration = iteration + 1
     end
 end
 
