@@ -33,6 +33,7 @@ function arolib.help()
     print("colortps(tps: number): void - prints out tps in a color")
     print("draconicCore(): void - constant status of Draconic storage core")
     print("reset(): void - resets the resolution")
+    print("extremeReactorStats(): void - controls for extremeReactors")
     print("help() - shows this list")
 end
 
@@ -109,7 +110,7 @@ function arolib.draconicCore()
     if not pcall(
         function()
             local core = require("component").draconic_rf_storage
-            print("use arolib.reset() to reset the Resolution back.");
+            print("use arolib.reset(), or reboot, to reset the Resolution back.");
             os.sleep(4)
             require("component").gpu.setResolution(40,7);
             require("term").clear()
