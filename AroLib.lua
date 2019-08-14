@@ -158,7 +158,6 @@ function arolib.extremeReactorStats()
         tempStage = math.floor(temp/(maxtemp/40));
 
         for i = 0, tempStage, 1 do
-            print("test")
             if tempStage >= 0 then
                 gpu.setBackground(0xFF0000)
             elseif tempStage >= 5 then
@@ -194,8 +193,8 @@ function arolib.extremeReactorStats()
 
     gpu.fill(7,5,46,3," ") --Temperatures
 
-    gpu.fill(7,9,20,40," ") --Core temp bar
-    gpu.fill(33,9,20,40," ") --Casing temp bar
+    --gpu.fill(7,9,20,40," ") --Core temp bar
+    --gpu.fill(33,9,20,40," ") --Casing temp bar
 
     gpu.fill(60,36,40,13," ") --battery main
     gpu.fill(100,41,2,3," ") --battery bit
