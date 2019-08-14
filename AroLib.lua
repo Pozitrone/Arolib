@@ -25,33 +25,32 @@ clrOrange = 0xFFAA00
 
 -- Functions
 
-function tempBar(temp,x,y,maxtemp,gpu)
---    local gpu = require("component").gpu
-    local bg = gpu.getBackground();
+function tempBar(temp,x,y,maxtemp)
+    local bg = require("component").gpu.getBackground();
     tempStage = math.floor(temp/(maxtemp/40));
     for i = 0, tempStage, 1 do
         if tempStage >= 0 then
-            gpu.setBackground(0xFF0000)
+            require("component").gpu.setBackground(0xFF0000)
         elseif tempStage >= 5 then
-            gpu.setBackground(0xFF2400)
+            require("component").gpu.setBackground(0xFF2400)
         elseif tempStage >= 10 then
-            gpu.setBackground(0xFF4900)
+            require("component").gpu.setBackground(0xFF4900)
         elseif tempStage >= 15 then
-            gpu.setBackground(0xFF6D00)
+            require("component").gpu.setBackground(0xFF6D00)
         elseif tempStage >= 20 then
-            gpu.setBackground(0xCC9200)
+            require("component").gpu.setBackground(0xCC9200)
         elseif tempStage >= 25 then
-            gpu.setBackground(0xCCB600)
+            require("component").gpu.setBackground(0xCCB600)
         elseif tempStage >= 30 then
-            gpu.setBackground(0xCCDB00)
+            require("component").gpu.setBackground(0xCCDB00)
         elseif tempStage >= 35 then
-            gpu.setBackground(0xCCFF00)
+            require("component").gpu.setBackground(0xCCFF00)
         else
-            gpu.setBackground(0x00FF00)
+            require("component").gpu.setBackground(0x00FF00)
         end
-        gpu.fill(x,y+40-i,20,1," ")
+        require("component").gpu.fill(x,y+40-i,20,1," ")
     end
-    gpu.setBackground(bg)
+    require("component").gpu.setBackground(bg)
 end
 
 -- Library
@@ -206,10 +205,10 @@ function arolib.extremeReactorStats()
 
     --Core temperature
     local coreTemp = reactor.getFuelTemperature()
-    tempBar(coreTemp,7,9,2000,gpu)
+    tempBar(coreTemp,7,9,2000)
 
     local casingTemp = reactor.getCasingTemperature()
-    tempBar(casingTemp,33,9,2000,gpu)
+    tempBar(casingTemp,33,9,2000)
     os.sleep(10)
 end
 
