@@ -153,13 +153,18 @@ function arolib.extremeReactorStats()
     term.clear()
     
     gpu.setBackgound(0xD2D2D2)
-    gpu.fill(3,1,74,3," ")
-    gpu.fill(87,1,74,3," ")
 
-    gpu.fill(7,5,46,3," ")
+    gpu.fill(3,1,74,3," ") --reactor name
+    gpu.fill(87,1,74,3," ") --reactor type
 
-    gpu.fill(7,9,20,40," ")
-    gpu.fill(33,9,20,40," ")
+    gpu.fill(7,5,46,3," ") --Temperatures
+
+    gpu.fill(7,9,20,40," ") --Core temp bar
+    gpu.fill(33,9,20,40," ") --Casing temp bar
+
+
+    gpu.fill(60,36,40,13," ") --battery main
+    gpu.fill(100,41,2,3," ") --battery bit
 
     os.sleep(10)
 end
