@@ -182,34 +182,35 @@ function arolib.extremeReactorStats()
     local gpu = require("component").gpu
     local reactor = require("component").br_reactor
 
+    while true do
     
+        term.clear()
+        
+        gpu.setBackground(0xD2D2D2)
 
-    term.clear()
-    
-    gpu.setBackground(0xD2D2D2)
+        gpu.fill(3,1,74,3," ") --reactor name
+        gpu.fill(87,1,74,3," ") --reactor type
 
-    gpu.fill(3,1,74,3," ") --reactor name
-    gpu.fill(87,1,74,3," ") --reactor type
+        gpu.fill(7,5,46,3," ") --Temperatures
 
-    gpu.fill(7,5,46,3," ") --Temperatures
+        --gpu.fill(7,9,20,40," ") --Core temp bar
+        --gpu.fill(33,9,20,40," ") --Casing temp bar
 
-    --gpu.fill(7,9,20,40," ") --Core temp bar
-    --gpu.fill(33,9,20,40," ") --Casing temp bar
+        gpu.fill(60,36,40,13," ") --battery main
+        gpu.fill(100,41,2,3," ") --battery bit
 
-    gpu.fill(60,36,40,13," ") --battery main
-    gpu.fill(100,41,2,3," ") --battery bit
+        --button
+        gpu.fill(108,36,44,13," ") --button
+        --end button
 
-    --button
-    gpu.fill(108,36,44,13," ") --button
-    --end button
+        --Core temperature
+        local coreTemp = reactor.getFuelTemperature()
+        tempBar(coreTemp,7,9,2000)
 
-    --Core temperature
-    local coreTemp = reactor.getFuelTemperature()
-    tempBar(coreTemp,7,9,2000)
-
-    local casingTemp = reactor.getCasingTemperature()
-    tempBar(casingTemp,33,9,2000)
-    os.sleep(10)
+        local casingTemp = reactor.getCasingTemperature()
+        tempBar(casingTemp,33,9,2000)
+        os.sleep(1)
+    end
 end
 
 
