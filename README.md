@@ -24,6 +24,33 @@ Prints out TPS in according color.
 
 Useful for displaying the TPS. In your codes, please, use **tps()**.  
 
+#### draconicCore()
+Sets lower resolution and displays information about a Draconic Evolution energy storage.  
+* Max RF  
+* Current RF
+* Transfer rate (colored)  
+
+To reset the resolution, use **reset()**, or **reboot** the computer.  
+
+#### extremeReactorStats(reactorName: string)
+Offers a complex interface about an Extreme Reactor.
+* Reactor Name - Your custom selected name
+* Reactor Type - Actively / Passively cooled
+* Core Temperature - Bar on the left
+* Casing Temperature - Bar on the right
+* Reactor Status - Online / Offline
+* Control Rods - Amount of control rods
+* Fuel Status - Percentage of fuel inside the reactor
+* Reactivity - Percentage value
+* Energy generated - RF/t
+* Fuel consumption - in mB/t
+* Waste amount - Percentage amount of waste  
+* Energy stored - Battery icon
+* On / Off button - touchable
+
+Battery has three colors depending on the charge, temperature uses 8-color gradient.  
+On / Off button uses two colors to determine the action.
+
 ### Changelog
 ###### 1.0
 > * Initiated library creation, with functions tps(), farmsControl(), colorTps(), draconicCore(), reset(), extremeReactorStats() and help()  
