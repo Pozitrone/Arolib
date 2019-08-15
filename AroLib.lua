@@ -175,7 +175,7 @@ function arolib.reset()
     end
 end
 
-function arolib.extremeReactorStats()
+function arolib.extremeReactorStats(reactorName)
     local term = require("term")
     local gpu = require("component").gpu
     local reactor = require("component").br_reactor
@@ -184,6 +184,11 @@ function arolib.extremeReactorStats()
     while true do
         gpu.setBackground(0x000000)
         term.clear()
+
+        gpu.setForeground(0x000000)
+        gpu.set(7,2,reactorName)
+
+
         gpu.setBackground(0xD2D2D2)
 
         gpu.fill(3,1,74,3," ") --reactor name
@@ -219,7 +224,7 @@ function arolib.extremeReactorStats()
         elseif percent < 40 then
             gpu.setBackground(0xFFAA00)
         elseif percent < 70 then
-            gpu.setBackground(0xFF00FF)
+            gpu.setBackground(0xFFFF00)
         else
             gpu.setBackground(0x00FF00)
         end
