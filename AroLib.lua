@@ -184,14 +184,13 @@ function arolib.extremeReactorStats(reactorName)
     while true do
         gpu.setBackground(0x000000)
         term.clear()
-
         gpu.setForeground(0x000000)
-        gpu.set(7,2,reactorName)
-
 
         gpu.setBackground(0xD2D2D2)
 
         gpu.fill(3,1,74,3," ") --reactor name
+        gpu.set(7,2,reactorName) -- reactor name text
+
         gpu.fill(87,1,74,3," ") --reactor type
 
         gpu.fill(7,5,46,3," ") --Temperatures
