@@ -29,24 +29,22 @@ function tempBar(temp,x,y,maxtemp)
     local bg = require("component").gpu.getBackground();
     tempStage = math.floor(temp/(maxtemp/40));
     for i = 0, tempStage, 1 do
-        if tempStage >= 0 then
-            require("component").gpu.setBackground(0xFF0000)
-        elseif tempStage >= 5 then
-            require("component").gpu.setBackground(0xFF2400)
-        elseif tempStage >= 10 then
-            require("component").gpu.setBackground(0xFF4900)
-        elseif tempStage >= 15 then
-            require("component").gpu.setBackground(0xFF6D00)
-        elseif tempStage >= 20 then
-            require("component").gpu.setBackground(0xCC9200)
-        elseif tempStage >= 25 then
-            require("component").gpu.setBackground(0xCCB600)
-        elseif tempStage >= 30 then
-            require("component").gpu.setBackground(0xCCDB00)
-        elseif tempStage >= 35 then
-            require("component").gpu.setBackground(0xCCFF00)
+        if i <= 5 then
+            require("component").gpu.setBackground(0x0000FF)
+        elseif i <= 10 then
+            require("component").gpu.setBackground(0x3300FF)
+        elseif i <= 15 then
+            require("component").gpu.setBackground(0x6600FF)
+        elseif i <= 20 then
+            require("component").gpu.setBackground(0x9900FF)
+        elseif i <= 25 then
+            require("component").gpu.setBackground(0xCC00C0)
+        elseif i <= 30 then
+            require("component").gpu.setBackground(0xFF0080)
+        elseif i <= 35 then
+            require("component").gpu.setBackground(0xFF0040)
         else
-            require("component").gpu.setBackground(0x00FF00)
+            require("component").gpu.setBackground(0xFF0000)
         end
         require("component").gpu.fill(x,y+40-i,20,1," ")
     end
