@@ -1,4 +1,5 @@
-# OpenComputers base control by Arothe for ToastyNetworks
+# OpenComputers base control for ToastyNetworks
+## by Arothe
 Visit our website! **https://toastynetworks.net/**
 
 ### Usage
