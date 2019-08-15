@@ -201,12 +201,45 @@ function arolib.extremeReactorStats()
         gpu.fill(108,36,44,13," ") --button
         --end button
 
-        --Core temperature
+        -- Core temperature
         coreTemp = reactor.getFuelTemperature()
         tempBar(coreTemp,7,9,2000)
 
+        -- Casing temperature
         casingTemp = reactor.getCasingTemperature()
         tempBar(casingTemp,33,9,2000)
+
+        -- Battery overlay
+        local bg = gpu.getBackground()
+        energy = reactor.getEnergyStored()
+        onePercent = 100000
+        percent = math.floor(energy/10000000)*100
+        if percent < 15 then
+            gpu.setBackground(0xFF0000)
+        elseif percent < 40 then
+            gpu.setBackground(0xFFAA00)
+        elseif percent < 70 then
+            gpu.setBackground(0xFF00FF)
+        else
+            gpu.setBackground(0x00FF00)
+        end
+
+        for i = 0, 96, 2.4 do
+            if percent - i >= 1 then
+                gpu.fill(60+i/2.4,36,1,13," ")
+            end
+        end
+
+        if percent > 98 then
+            gpu.fill(100,41,1,3," ")
+        end
+
+        if percent == 100 then
+            gpu.fill(101,41,1,3," ")
+        end
+        gpu.setBackground(bg)
+
+
         os.sleep(1)
     end
 end
