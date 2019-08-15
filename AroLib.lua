@@ -176,75 +176,122 @@ function arolib.reset()
 end
 
 function arolib.extremeReactorStats(reactorName)
-    local term = require("term")
-    local gpu = require("component").gpu
-    local reactor = require("component").br_reactor
-    local iteration = 0;
+    if not pcall(
+        function()
+            local term = require("term")
+            local gpu = require("component").gpu
+            local reactor = require("component").br_reactor
+            local iteration = 0;
 
-    while true do
-        gpu.setBackground(0x000000)
-        term.clear()
-        gpu.setForeground(0x000000)
+            while true do
+                gpu.setBackground(0x000000)
+                term.clear()
+                gpu.setForeground(0x000000)
 
-        gpu.setBackground(0xD2D2D2)
+                gpu.setBackground(0xD2D2D2)
 
-        gpu.fill(3,1,74,3," ") --reactor name
-        gpu.set(7,2,reactorName) -- reactor name text
+                gpu.fill(3,1,74,3," ") --reactor name
+                gpu.set(7,2,reactorName) -- reactor name text
 
-        gpu.fill(87,1,74,3," ") --reactor type
+                gpu.fill(87,1,74,3," ") --reactor type
+                if reactor.isActivelyCooled() then
+                    reactorType = "Actively cooled"
+                else
+                    reactorType = "Passively cooled"
+                end
+                gpu.set(91,2,reactorType) -- reactor type text
 
-        gpu.fill(7,5,46,3," ") --Temperatures
+                
+                gpu.fill(7,5,46,3," ") -- Temperatures
+                gpu.set(8,6,"Core"); -- Core temp text
+                gpu.set(34,6,"Casing"); -- Casing temp text
 
-        gpu.fill(7,9,20,40," ") --Core temp bar
-        gpu.fill(33,9,20,40," ") --Casing temp bar
+                gpu.fill(7,9,20,40," ") --Core temp bar
+                gpu.fill(33,9,20,40," ") --Casing temp bar
 
-        gpu.fill(60,36,40,13," ") --battery main
-        gpu.fill(100,41,2,3," ") --battery bit
+                gpu.fill(60,36,40,13," ") --battery main
+                gpu.fill(100,41,2,3," ") --battery bit
 
-        --button
-        gpu.fill(108,36,44,13," ") --button
-        --end button
+                --button
+                gpu.fill(108,36,44,13," ") --button
+                --end button
 
-        -- Core temperature
-        coreTemp = reactor.getFuelTemperature()
-        tempBar(coreTemp,7,9,2000)
+                -- Core temperature
+                coreTemp = reactor.getFuelTemperature()
+                tempBar(coreTemp,7,9,2000)
 
-        -- Casing temperature
-        casingTemp = reactor.getCasingTemperature()
-        tempBar(casingTemp,33,9,2000)
+                -- Casing temperature
+                casingTemp = reactor.getCasingTemperature()
+                tempBar(casingTemp,33,9,2000)
 
-        -- Battery overlay
-        local bg = gpu.getBackground()
-        energy = reactor.getEnergyStored()
-        onePercent = 100000
-        percent = energy/10000000*100
-        if percent < 15 then
-            gpu.setBackground(0xFF0000)
-        elseif percent < 40 then
-            gpu.setBackground(0xFFAA00)
-        elseif percent < 70 then
-            gpu.setBackground(0xFFFF00)
-        else
-            gpu.setBackground(0x00FF00)
-        end
+                -- Battery overlay
+                local bg = gpu.getBackground()
+                energy = reactor.getEnergyStored()
+                onePercent = 100000
+                percent = energy/10000000*100
+                if percent < 15 then
+                    gpu.setBackground(0xFF0000)
+                elseif percent < 40 then
+                    gpu.setBackground(0xFFAA00)
+                elseif percent < 70 then
+                    gpu.setBackground(0xFFFF00)
+                else
+                    gpu.setBackground(0x00FF00)
+                end
 
-        for i = 0, 96, 2.4 do
-            if percent - i >= 1 then
-                gpu.fill(60+i/2.4,36,1,13," ")
+                for i = 0, 96, 2.4 do
+                    if percent - i >= 1 then
+                        gpu.fill(60+i/2.4,36,1,13," ")
+                    end
+                end
+
+                if percent > 98 then
+                    gpu.fill(100,41,1,3," ")
+                end
+
+                if percent == 100 then
+                    gpu.fill(101,41,1,3," ")
+                end
+                gpu.setBackground(bg)
+
+                -- General info
+                gpu.set(58,10,"Reactor status")
+                gpu.set(58,13,"Control rods")
+                gpu.set(58,16,"Fuel status")
+                gpu.set(58,19,"Reactivity")
+                gpu.set(58,22,"Generating RF")
+                gpu.set(58,25,"Fuel Consumption")
+                gpu.set(58,28,"Waste produced")
+
+                -- General data
+                if reactor.getActive() then
+                    gpu.setForeground(0x00FF00)
+                    reactorActive = "Active"
+                else
+                    gpu.setForeground(0xFF0000)
+                    reactorActive = "Inactive"
+                end
+                gpu.set(100,10,reactorActive)
+                gpu.setForeground(0x000000)    
+                
+                gpu.set(100,13,reactor.getNumberOfControlRods())
+
+                gpu.set(100,16,reactor.getFuelAmount() .. " mB")
+
+                gpu.set(100,19,reactor.getFuelReactivity() .. " %")
+
+                gpu.set(100,22,reactor.getEnergyProducedLastTick() .. " RF/t")
+
+                gpu.set(100,25,reactor.getFuelConsumedLastTick() .. " mB/t")
+
+                gpu.set(100,28,reactor.getWasteAmount() .. " mB")
+
+
+                os.sleep(1)
             end
         end
-
-        if percent > 98 then
-            gpu.fill(100,41,1,3," ")
-        end
-
-        if percent == 100 then
-            gpu.fill(101,41,1,3," ")
-        end
-        gpu.setBackground(bg)
-
-
-        os.sleep(1)
+    ) then
+        print("An error occured. Please, make sure your reactor is connected.")
     end
 end
 
