@@ -21,6 +21,7 @@ Prints out TPS in according color.
 * Green, when higher than 15
 * Orange, when between 15 and 5
 * Red, when under 5  
+
 Useful for displaying the TPS. In your codes, please, use **tps()**.  
 
 ### Changelog
