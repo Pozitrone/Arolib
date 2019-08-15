@@ -49,7 +49,20 @@ Offers a complex interface about an Extreme Reactor.
 * On / Off button - touchable
 
 Battery has three colors depending on the charge, temperature uses 8-color gradient.  
-On / Off button uses two colors to determine the action.
+On / Off button uses two colors to determine the action.  
+
+#### farmsControl()
+In 10-second interval checks the server TPS (uses internal **tps()** function). If TPS > 15, returns redstone signal from the back.  
+Set your harvester to "only active with Redstone signal" and leave it running. If the server is struggling, the farm will turn off.
+
+#### help()
+Print's out simplified list of all functions.  
+
+#### reset()
+Resets resolution back to 160\*50 (Tier 3 screen resolution). 
+
+#### tps()
+Returns server TPS.
 
 ### Changelog
 ###### 1.0
