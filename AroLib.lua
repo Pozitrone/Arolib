@@ -213,9 +213,7 @@ function arolib.extremeReactorStats()
         local bg = gpu.getBackground()
         energy = reactor.getEnergyStored()
         onePercent = 100000
-        percent = math.floor(energy/10000000)*100
-        print("percent: " .. tostring(percent))
-        print("energy: " .. tostring(energy))
+        percent = energy/10000000*100
         if percent < 15 then
             gpu.setBackground(0xFF0000)
         elseif percent < 40 then
@@ -228,7 +226,6 @@ function arolib.extremeReactorStats()
 
         for i = 0, 96, 2.4 do
             if percent - i >= 1 then
-                print("percent: " .. tostring(percent) .. " i: ".. tostring(i))
                 gpu.fill(60+i/2.4,36,1,13," ")
             end
         end
