@@ -26,6 +26,6 @@ Useful for displaying the TPS. In your codes, please, use **tps()**.
 
 ### Changelog
 ###### 1.0
-> Initiated library creation, with functions tps(), farmsControl(), colorTps(), draconicCore(), reset(), extremeReactorStats() and help()  
-> Added basic documentation  
-> Added changelog  
+> * Initiated library creation, with functions tps(), farmsControl(), colorTps(), draconicCore(), reset(), extremeReactorStats() and help()  
+> * Added basic documentation  
+> * Added changelog  
