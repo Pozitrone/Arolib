@@ -94,8 +94,9 @@ end
 function arolib.farmsControl() -- Outputs redstone from the back, when tps > 15, else stops the signal. Checks every 10 seconds.
     if not pcall(
         function()
+            local sides = require("sides")
             while true do
-                local tps = tps()
+                local tps = arolib.tps()
                 if tps > 15 then
                     print("TPS status nominal, farms running.")
                     colortps(tps)
