@@ -176,7 +176,7 @@ function arolib.reset()
 end
 
 function arolib.extremeReactorStats(reactorName)
-    if not pcall(
+    --if not pcall(
         function()
             local term = require("term")
             local gpu = require("component").gpu
@@ -254,6 +254,8 @@ function arolib.extremeReactorStats(reactorName)
                 end
                 gpu.setBackground(bg)
 
+                gpu.setBackground(0x000000)
+
                 -- General info
                 gpu.set(58,10,"Reactor status")
                 gpu.set(58,13,"Control rods")
@@ -290,9 +292,9 @@ function arolib.extremeReactorStats(reactorName)
                 os.sleep(1)
             end
         end
-    ) then
-        print("An error occured. Please, make sure your reactor is connected.")
-    end
+    --) then
+       -- print("An error occured. Please, make sure your reactor is connected.")
+    --end
 end
 
 
