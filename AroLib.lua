@@ -275,7 +275,7 @@ function arolib.extremeReactorStats(reactorName)
                     reactorActive = "Inactive"
                 end
                 gpu.set(100,10,reactorActive)
-                gpu.setForeground(0x000000)    
+                gpu.setForeground(0xFFFFFF)    
                 
                 gpu.set(100,13,tostring(reactor.getNumberOfControlRods()))
 
