@@ -227,6 +227,7 @@ function arolib.extremeReactorStats(reactorName)
                 tempBar(casingTemp,33,9,2000)
 
                 -- Battery overlay
+                local bg = gpu.getBackground()
                 energy = reactor.getEnergyStored()
                 onePercent = 100000
                 percent = energy/10000000*100
@@ -253,6 +254,7 @@ function arolib.extremeReactorStats(reactorName)
                 if percent == 100 then
                     gpu.fill(101,41,1,3," ")
                 end
+                gpu.setBackground(bg);
 
 
                 gpu.set(75,7,"General info")
@@ -285,17 +287,17 @@ function arolib.extremeReactorStats(reactorName)
                 
                 gpu.set(108,13,tostring(reactor.getNumberOfControlRods()))
 
-                gpu.set(108,16,tostring(reactor.getFuelAmount() .. " mB"))
+                gpu.set(108,16,tostring(reactor.getFuelAmount()) .. " mB")
 
-                gpu.set(108,19,tostring(reactor.getFuelReactivity() .. " %"))
+                gpu.set(108,19,tostring(reactor.getFuelReactivity()) .. " %")
 
-                gpu.set(108,22,tostring(reactor.getEnergyProducedLastTick() .. " RF/t"))
+                gpu.set(108,22,tostring(reactor.getEnergyProducedLastTick()) .. " RF/t")
 
-                gpu.set(108,25,tostring(reactor.getFuelConsumedLastTick() .. " mB/t"))
+                gpu.set(108,25,tostring(reactor.getFuelConsumedLastTick()) .. " mB/t")
 
-                gpu.set(108,28,tostring(reactor.getWasteAmount() .. " mB"))
+                gpu.set(108,28,tostring(reactor.getWasteAmount()) .. " mB")
 
-                gpu.set(108,31,tostring(reactor.getControlRodLevel() .. "%"))
+                gpu.set(108,31,tostring(reactor.getControlRodLevel()) .. "%")
 
                 os.sleep(1)
             end
