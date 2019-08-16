@@ -258,13 +258,13 @@ function arolib.extremeReactorStats(reactorName)
                 gpu.setForeground(0xFFFFFF)
 
                 -- General info
-                gpu.set(58,10,"Reactor status")
-                gpu.set(58,13,"Control rods")
-                gpu.set(58,16,"Fuel status")
-                gpu.set(58,19,"Reactivity")
-                gpu.set(58,22,"Generating RF")
-                gpu.set(58,25,"Fuel Consumption")
-                gpu.set(58,28,"Waste produced")
+                gpu.set(60,10,"Reactor status")
+                gpu.set(60,13,"Control rods")
+                gpu.set(60,16,"Fuel status")
+                gpu.set(60,19,"Reactivity")
+                gpu.set(60,22,"Generating RF")
+                gpu.set(60,25,"Fuel Consumption")
+                gpu.set(60,28,"Waste produced")
 
                 -- General data
                 if reactor.getActive() then
@@ -274,20 +274,20 @@ function arolib.extremeReactorStats(reactorName)
                     gpu.setForeground(0xFF0000)
                     reactorActive = "Inactive"
                 end
-                gpu.set(100,10,reactorActive)
+                gpu.set(108,10,reactorActive)
                 gpu.setForeground(0xFFFFFF)    
                 
-                gpu.set(100,13,tostring(reactor.getNumberOfControlRods()))
+                gpu.set(108,13,tostring(reactor.getNumberOfControlRods()))
 
-                gpu.set(100,16,tostring(reactor.getFuelAmount() .. " mB"))
+                gpu.set(108,16,tostring(reactor.getFuelAmount() .. " mB"))
 
-                gpu.set(100,19,tostring(reactor.getFuelReactivity() .. " %"))
+                gpu.set(108,19,tostring(reactor.getFuelReactivity() .. " %"))
 
-                gpu.set(100,22,tostring(reactor.getEnergyProducedLastTick() .. " RF/t"))
+                gpu.set(108,22,tostring(reactor.getEnergyProducedLastTick() .. " RF/t"))
 
-                gpu.set(100,25,tostring(reactor.getFuelConsumedLastTick() .. " mB/t"))
+                gpu.set(108,25,tostring(reactor.getFuelConsumedLastTick() .. " mB/t"))
 
-                gpu.set(100,28,tostring(reactor.getWasteAmount() .. " mB"))
+                gpu.set(108,28,tostring(reactor.getWasteAmount() .. " mB"))
 
 
                 os.sleep(1)
