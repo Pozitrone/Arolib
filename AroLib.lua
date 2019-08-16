@@ -276,17 +276,17 @@ function arolib.extremeReactorStats(reactorName)
                 gpu.set(100,10,reactorActive)
                 gpu.setForeground(0x000000)    
                 
-                gpu.set(100,13,reactor.getNumberOfControlRods())
+                gpu.set(100,13,tostring(reactor.getNumberOfControlRods()))
 
-                gpu.set(100,16,reactor.getFuelAmount() .. " mB")
+                gpu.set(100,16,tostring(reactor.getFuelAmount() .. " mB"))
 
-                gpu.set(100,19,reactor.getFuelReactivity() .. " %")
+                gpu.set(100,19,tostring(reactor.getFuelReactivity() .. " %"))
 
-                gpu.set(100,22,reactor.getEnergyProducedLastTick() .. " RF/t")
+                gpu.set(100,22,tostring(reactor.getEnergyProducedLastTick() .. " RF/t"))
 
-                gpu.set(100,25,reactor.getFuelConsumedLastTick() .. " mB/t")
+                gpu.set(100,25,tostring(reactor.getFuelConsumedLastTick() .. " mB/t"))
 
-                gpu.set(100,28,reactor.getWasteAmount() .. " mB")
+                gpu.set(100,28,tostring(reactor.getWasteAmount() .. " mB"))
 
 
                 os.sleep(1)
