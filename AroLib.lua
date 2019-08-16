@@ -202,7 +202,7 @@ function arolib.extremeReactorStats(reactorName)
                 gpu.set(91,2,reactorType) -- reactor type text
 
                 gpu.fill(60,5,90,3," ") -- General info field
-                gpu.set(60,6,"General info") -- General info text
+                gpu.set(75,5,"General info") -- General info text
 
                 gpu.fill(7,5,46,3," ") -- Temperatures
                 gpu.set(8,6,"Core"); -- Core temp text
