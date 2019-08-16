@@ -297,7 +297,7 @@ function arolib.extremeReactorStats(reactorName)
 
                 gpu.set(108,28,tostring(reactor.getWasteAmount()) .. " mB")
 
-                gpu.set(108,31,tostring(reactor.getControlRodLevel(0)) .. "%")
+                gpu.set(108,31,tostring(reactor.getControlRodLevel(0)) .. " %")
 
                 os.sleep(1)
             end
