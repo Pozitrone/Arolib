@@ -61,7 +61,7 @@ function arolib.help()
     print("colortps(tps: number): void - prints out tps in a color")
     print("draconicCore(): void - constant status of Draconic storage core")
     print("reset(): void - resets the resolution")
-    print("extremeReactorStats(): void - controls for extremeReactors")
+    print("extremeReactorStats(reactorName: string): void - controls for extremeReactors")
     print("help() - shows this list")
 end
 
@@ -177,7 +177,7 @@ end
 
 function arolib.extremeReactorStats(reactorName)
     --if not pcall(
-        function()
+        --function()
             local term = require("term")
             local gpu = require("component").gpu
             local reactor = require("component").br_reactor
@@ -291,7 +291,7 @@ function arolib.extremeReactorStats(reactorName)
 
                 os.sleep(1)
             end
-        end
+        --end
     --) then
        -- print("An error occured. Please, make sure your reactor is connected.")
     --end
