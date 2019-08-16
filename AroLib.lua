@@ -190,7 +190,7 @@ function arolib.extremeReactorStats(reactorName)
 
                 gpu.setBackground(0xD2D2D2)
 
-                gpu.fill(3,1,74,3," ") --reactor name
+                gpu.fill(1,1,74,3," ") --reactor name
                 gpu.set(7,2,reactorName) -- reactor name text
 
                 gpu.fill(87,1,74,3," ") --reactor type
@@ -201,9 +201,9 @@ function arolib.extremeReactorStats(reactorName)
                 end
                 gpu.set(91,2,reactorType) -- reactor type text
 
-                gpu.fill(60,6,50,3," ") -- General info field
+                gpu.fill(60,5,50,3," ") -- General info field
+                gpu.set(90,7,"General info") -- General info text
 
-                
                 gpu.fill(7,5,46,3," ") -- Temperatures
                 gpu.set(8,6,"Core"); -- Core temp text
                 gpu.set(34,6,"Casing"); -- Casing temp text
@@ -256,15 +256,11 @@ function arolib.extremeReactorStats(reactorName)
                 end
                 gpu.setBackground(bg);
 
-
-                gpu.set(75,7,"General info")
-
                 gpu.setBackground(0x000000)
                 gpu.setForeground(0xFFFFFF)
 
                 -- General info
-                
-
+            
                 gpu.set(60,10,"Reactor status")
                 gpu.set(60,13,"Control rods")
                 gpu.set(60,16,"Fuel status")
