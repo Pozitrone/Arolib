@@ -296,6 +296,35 @@ function arolib.extremeReactorStats(reactorName)
 
                 gpu.set(108,31,tostring(reactor.getControlRodLevel(0)) .. " %")
 
+                -- main button
+                if reactor.getActive() then
+                    gpu.setBackground(0xFF0000)
+                    gpu.setForeground(0xFFFFFF)
+                    gpu.fill(108,36,54,7, " ")
+                    gpu.set(130,40, "OFF")
+                else
+                    gpu.setBackground(0x00FF00)
+                    gpu.setForeground(0x000000)
+                    gpu.fill(108,36,54,7, " ")
+                    gpu.set(130,40, "ON")
+                end
+
+                --sub buttons
+                gpu.setBackground(0xFF0000)
+                gpu.setForeground(0xFFFFFF)
+                gpu.fill(108,43,18,6, " ")
+                gpu.set(130,40, "-10%")
+
+                gpu.setBackground(0x000000)
+                gpu.setForeground(0xFFFFFF)
+                gpu.fill(126,43,18,6, " ")
+                gpu.set(130,40, "+10%")
+
+                gpu.setBackground(0x00FF00)
+                gpu.setForeground(0x000000)
+                gpu.fill(144,43,18,6, " ")
+                gpu.set(130,40, tostring(reactor.getControlRodLevel(0)) .. " %")
+
                 os.sleep(1)
             end
         --end
