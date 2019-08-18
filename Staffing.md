@@ -32,6 +32,7 @@
 |1295    |SF4     |TheNaga          |Old account ownership     |
 |1296    |SB2     |SkinWalkerKiller |Issues with TiCon tables  |
 |1297    |SF4     |mrbsusername     |Compact Machines          |
+|1298    |IE      |CrystallinaRose  |Soul shard hp cost issue  |
 |1299    |IE      |deafremix        |Claim issues              |
 |1300    |CON     |TolarianAcademy  |Item exchange             |
 |1303    |SF4     |mrbsusername     |Compact Machines          |
