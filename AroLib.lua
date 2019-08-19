@@ -332,7 +332,7 @@ function arolib.extremeReactorStats(reactorName)
                 if id == "interrupted" then
                     -- ON/OFF
                     if x >= 108 and x <= 162 and y >= 36 and y <= 43 then
-                        reactor.setActive(!reactor.getActive)
+                        reactor.setActive(not(reactor.getActive))
                     -- +10%
                     elseif x >= 108 and x <= 126 and y >= 43 and y <= 49 then
                         local level = reactor.getControlRodLevel(0)
