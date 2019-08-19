@@ -314,19 +314,19 @@ function arolib.extremeReactorStats(reactorName)
                 gpu.setBackground(0xFF0000)
                 gpu.setForeground(0xFFFFFF)
                 gpu.fill(108,43,18,6, " ")
-                gpu.set(130,40, "-10%")
+                gpu.set(115,45, "-10%")
 
                 gpu.setBackground(0x000000)
                 gpu.setForeground(0xFFFFFF)
                 gpu.fill(126,43,18,6, " ")
-                gpu.set(130,40, "+10%")
+                gpu.set(130,45, "+10%")
 
                 gpu.setBackground(0x00FF00)
                 gpu.setForeground(0x000000)
                 gpu.fill(144,43,18,6, " ")
                 gpu.setForeground(0xFFFFFF)
                 gpu.setBackground(0x000000)
-                gpu.set(130,45, tostring(reactor.getControlRodLevel(0)) .. " %")
+                gpu.set(150,45, tostring(reactor.getControlRodLevel(0)) .. " %")
 
                 os.sleep(1)
 
@@ -344,7 +344,7 @@ function arolib.extremeReactorStats(reactorName)
                         elseif level > 100 then 
                             value = 100
                         else
-                            value = reactor.getControlRodLevel(0) + 10
+                            value = reactor.getControlRodLevel(0) - 10
                         end
 
                         reactor.setAllControlRodLevels(value)
@@ -358,7 +358,7 @@ function arolib.extremeReactorStats(reactorName)
                         elseif level > 100 then 
                             value = 100
                         else
-                            value = reactor.getControlRodLevel(0) - 10
+                            value = reactor.getControlRodLevel(0) + 10
                         end
 
                         reactor.setAllControlRodLevels(value)
