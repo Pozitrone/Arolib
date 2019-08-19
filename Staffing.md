@@ -28,6 +28,7 @@
 |1285    |SF4     |Thomblr          |Nether related information|
 |1286    |SB2     |Erikcraft_HD_    |Fusion Crafting           |
 |1289    |IE      |Chtholly         |Review token reward       |
+|1292    |SB2     |Erikcraft_HD_    |Rainbow generator setup   |
 |1294    |IE      |acer__           |Botania relics issue      |
 |1295    |SF4     |TheNaga          |Old account ownership     |
 |1296    |SB2     |SkinWalkerKiller |Issues with TiCon tables  |
