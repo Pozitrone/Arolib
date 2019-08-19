@@ -324,12 +324,14 @@ function arolib.extremeReactorStats(reactorName)
                 gpu.setBackground(0x00FF00)
                 gpu.setForeground(0x000000)
                 gpu.fill(144,43,18,6, " ")
-                gpu.set(130,40, tostring(reactor.getControlRodLevel(0)) .. " %")
+                gpu.setForeground(0xFFFFFF)
+                gpu.setBackground(0x000000)
+                gpu.set(130,45, tostring(reactor.getControlRodLevel(0)) .. " %")
 
                 os.sleep(1)
 
                 local id, _, x, y = event.pullMultiple("touch")
-                if id == "interrupted" then
+                if id == "touch" then
                     -- ON/OFF
                     if x >= 108 and x <= 162 and y >= 36 and y <= 43 then
                         reactor.setActive(not(reactor.getActive))
