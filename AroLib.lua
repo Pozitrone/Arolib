@@ -183,6 +183,7 @@ function arolib.extremeReactorStats(reactorName)
             local gpu = require("component").gpu
             local reactor = require("component").br_reactor
             local iteration = 0;
+            local event = require("event")
 
             while true do
                 gpu.setBackground(0x000000)
@@ -326,6 +327,40 @@ function arolib.extremeReactorStats(reactorName)
                 gpu.set(130,40, tostring(reactor.getControlRodLevel(0)) .. " %")
 
                 os.sleep(1)
+
+                local id, _, x, y = event.pullMultiple("touch")
+                if id == "interrupted" then
+                    -- ON/OFF
+                    if x >= 108 && x <= 162 && y >= 36 && y <= 43 then
+                        reactor.setActive(!reactor.getActive)
+                    -- +10%
+                    elseif x >= 108 && x <= 126 && y >= 43 && y <= 49 then
+                        local level = reactor.getControlRodLevel(0)
+                        if level < 0 then
+                            value = 0
+                        elseif level > 100 then 
+                            value = 100
+                        else
+                            value = reactor.getControlRodLevel(0) + 10
+                        end
+
+                        reactor.setAllControlRodLevels(value)
+
+                        
+                    -- -10%
+                    elseif x >= 108 && x <= 126 && y >= 43 && y <= 49 then
+                        local level = reactor.getControlRodLevel(0)
+                        if level < 0 then
+                            value = 0
+                        elseif level > 100 then 
+                            value = 100
+                        else
+                            value = reactor.getControlRodLevel(0) - 10
+                        end
+
+                        reactor.setAllControlRodLevels(value)
+                    end
+                end
             end
         --end
     --) then
