@@ -36,3 +36,4 @@
 |1299    |IE      |deafremix        |Claim issues              |
 |1300    |CON     |TolarianAcademy  |Item exchange             |
 |1303    |SF4     |mrbsusername     |Compact Machines          |
+|1312    |TL      |kyletheboss1     |Claim issues              |
