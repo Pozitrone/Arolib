@@ -319,14 +319,14 @@ function arolib.extremeReactorStats(reactorName)
                 gpu.setBackground(0x000000)
                 gpu.setForeground(0xFFFFFF)
                 gpu.fill(126,43,18,6, " ")
-                gpu.set(130,45, "+10%")
+                gpu.set(150,45, "+10%")
 
                 gpu.setBackground(0x00FF00)
                 gpu.setForeground(0x000000)
                 gpu.fill(144,43,18,6, " ")
                 gpu.setForeground(0xFFFFFF)
                 gpu.setBackground(0x000000)
-                gpu.set(150,45, tostring(reactor.getControlRodLevel(0)) .. " %")
+                gpu.set(130,45, tostring(reactor.getControlRodLevel(0)) .. " %")
 
                 os.sleep(1)
 
