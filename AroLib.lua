@@ -332,6 +332,7 @@ function arolib.extremeReactorStats(reactorName)
 
                 local id, _, x, y = event.pullMultiple("touch")
                 if id == "touch" then
+                    print(x, y)
                     -- ON/OFF
                     if x >= 108 and x <= 162 and y >= 36 and y <= 43 then
                         reactor.setActive(not(reactor.getActive))
