@@ -331,10 +331,10 @@ function arolib.extremeReactorStats(reactorName)
                 local id, _, x, y = event.pullMultiple("touch")
                 if id == "interrupted" then
                     -- ON/OFF
-                    if x >= 108 && x <= 162 && y >= 36 && y <= 43 then
+                    if x >= 108 and x <= 162 and y >= 36 and y <= 43 then
                         reactor.setActive(!reactor.getActive)
                     -- +10%
-                    elseif x >= 108 && x <= 126 && y >= 43 && y <= 49 then
+                    elseif x >= 108 and x <= 126 and y >= 43 and y <= 49 then
                         local level = reactor.getControlRodLevel(0)
                         if level < 0 then
                             value = 0
@@ -346,9 +346,9 @@ function arolib.extremeReactorStats(reactorName)
 
                         reactor.setAllControlRodLevels(value)
 
-                        
+
                     -- -10%
-                    elseif x >= 108 && x <= 126 && y >= 43 && y <= 49 then
+                    elseif x >= 108 and x <= 126 and y >= 43 and y <= 49 then
                         local level = reactor.getControlRodLevel(0)
                         if level < 0 then
                             value = 0
