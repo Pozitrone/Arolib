@@ -39,3 +39,4 @@
 |1303    |SF4     |mrbsusername     |Compact Machines          |
 |1305    |IE      |\_ranger75\_     |Another player's tesseract|
 |1312    |TL      |kyletheboss1     |Claim issues              |
+|1318    |IE      |Darkness001      |Items dropping on click   |
