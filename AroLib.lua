@@ -335,16 +335,16 @@ function arolib.extremeReactorStats(reactorName)
                     print(x, y)
                     -- ON/OFF
                     if x >= 108 and x <= 162 and y >= 36 and y <= 43 then
-                        reactor.setActive(not(reactor.getActive))
+                        reactor.setActive(not(reactor.getActive()))
                     -- +10%
                     elseif x >= 108 and x <= 126 and y >= 43 and y <= 49 then
-                        local level = reactor.getControlRodLevel(0)
+                        local level = reactor.getControlRodLevel(0) -10
                         if level < 0 then
                             value = 0
                         elseif level > 100 then 
                             value = 100
                         else
-                            value = reactor.getControlRodLevel(0) - 10
+                            value = level
                         end
 
                         reactor.setAllControlRodLevels(value)
@@ -352,13 +352,13 @@ function arolib.extremeReactorStats(reactorName)
 
                     -- -10%
                     elseif x >= 108 and x <= 126 and y >= 43 and y <= 49 then
-                        local level = reactor.getControlRodLevel(0)
+                        local level = reactor.getControlRodLevel(0) +10
                         if level < 0 then
                             value = 0
                         elseif level > 100 then 
                             value = 100
                         else
-                            value = reactor.getControlRodLevel(0) + 10
+                            value = level
                         end
 
                         reactor.setAllControlRodLevels(value)
