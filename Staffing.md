@@ -41,4 +41,5 @@
 |1312    |TL      |kyletheboss1     |Claim issues              |
 |1318    |IE      |Darkness001      |Items dropping on click   |
 |1320    |SF4     |RobinvHoof       |AE2 Stuff Sub-network     |
+|1378    |TL      |Pixelvon         |Issue unclear             |
 |1391    |SF4     |Grandreaper      |End teleportation bug     |
