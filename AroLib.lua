@@ -6,6 +6,7 @@
 -- run using
 -- arolib.function()
 
+-- use arolib.help() to print all functions
 ---------------------------------------
 
 -- Imports
