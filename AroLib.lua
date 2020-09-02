@@ -72,8 +72,8 @@ function arolib.holoTps()
             local holotext = require("holo-text")
         end)
     then
-        os.run(wget -f 'https://raw.githubusercontent.com/OpenPrograms/Sangar-Programs/blob/master/holo-text.lua' /home/holo-text.lua)
-        os.run(wget -f 'https://raw.githubusercontent.com/OpenPrograms/Sangar-Programs/blob/master/noise.lua' /home/noise.lua)
+        os.execute(wget -f 'https://raw.githubusercontent.com/OpenPrograms/Sangar-Programs/blob/master/holo-text.lua' /home/holo-text.lua)
+        os.execute(wget -f 'https://raw.githubusercontent.com/OpenPrograms/Sangar-Programs/blob/master/noise.lua' /home/noise.lua)
         local holotext = require("holo-text")  
     end
     
@@ -81,7 +81,7 @@ function arolib.holoTps()
         function()
             while true do
                 local tps = arolib.tps()
-                os.run(holotext tostring(tps))
+                os.execute(holotext tostring(tps))
                 os.sleep(10)
             end
         end)
