@@ -1,9 +1,9 @@
-# Staff time!  
+# Staff time on ToastyNetworks!  
 
 ### Bans  
 |ID      |Server  |Name             |Length      |Reason                    |
 |:------:|:------:|-----------------|:----------:|--------------------------|
-|3174    |DW20    |\_Mafagafinho_\  |7d          |Duping                    |
+|3174    |DW20    |\_Mafagafinho_   |7d          |Duping                    |
 |3175    |DW20    |AndreaSpadaro72  |7d          |Duping                    |
 |3176    |IE      |Lemoninamelon    |60d         |Hacking                   |
 
