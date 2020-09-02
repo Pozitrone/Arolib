@@ -1,6 +1,6 @@
 # OpenComputers base control for ToastyNetworks
 ## by Arothe
-Visit our website! **https://toastynetworks.net/**
+Visit our website! **https://mysticalmachines.com/**
 
 ### Usage
 Download the lib using  
