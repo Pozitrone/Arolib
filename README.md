@@ -1,4 +1,4 @@
-# OpenComputers base control for ToastyNetworks
+# OpenComputers base control for MysticalMachines
 ## by Arothe
 Visit our website! **https://mysticalmachines.com/**
 
