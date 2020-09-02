@@ -81,7 +81,7 @@ function arolib.holoTps()
         function()
             while true do
                 local tps = arolib.tps()
-                holotext tostring(tps)
+                os.run(holotext tostring(tps))
                 os.sleep(10)
             end
         end)
