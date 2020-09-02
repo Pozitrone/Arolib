@@ -66,6 +66,30 @@ function arolib.help()
     print("help() - shows this list")
 end
 
+function arolib.holoTps()
+    if not pcall(
+        function()
+            local holotext = require("holo-text")
+        end)
+    then
+        wget -f 'https://raw.githubusercontent.com/OpenPrograms/Sangar-Programs/blob/master/holo-text.lua' /home/holo-text.lua
+        wget -f 'https://raw.githubusercontent.com/OpenPrograms/Sangar-Programs/blob/master/noise.lua' /home/noise.lua
+        local holotext = require("holo-text")  
+    end
+    
+    if not pcall(
+        function()
+            while true do
+                local tps = arolib.tps()
+                holotext tps
+                os.sleep(10)
+            end
+        end)
+    then 
+        print("An error has occured. Please, check if you have a hologram connected.")
+    end
+end
+
 
 function arolib.tps() -- TPS function by Nex4rius
     if not pcall(
@@ -103,7 +127,7 @@ function arolib.farmsControl() -- Outputs redstone from the back, when tps > 15,
                     colortps(tps)
                     require("component").redstone.setOutput(sides.back, 15)
                 else
-                    print("TPS are too low, farm are not running!")
+                    print("TPS are too low, farms are not running!")
                     colortps(tps)
                     require("component").redstone.setOutput(sides.back, 0)
                 end
