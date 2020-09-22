@@ -64,4 +64,5 @@
 ### Tickets  
 |ID      |Server  |Name             |Issue                     |
 |:------:|:------:|-----------------|--------------------------|
+|125     |ETS1    |BearOfWhere      |Pixies stealing items     |
 
