@@ -65,4 +65,5 @@
 |ID      |Server  |Name             |Issue                     |
 |:------:|:------:|-----------------|--------------------------|
 |125     |ETS1    |BearOfWhere      |Pixies stealing items     |
+|129     |SEA     |Terus_           |Bugged conveyor belt      |
 
