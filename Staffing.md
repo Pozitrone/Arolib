@@ -59,6 +59,7 @@
 ### Warns  
 |ID      |Server  |Name             |Reason                    |
 |:------:|:------:|-----------------|--------------------------|
+|32      |SB      |KWTAhmady249     |Bypassing the AFK timer   |
 
 
 ### Tickets  
