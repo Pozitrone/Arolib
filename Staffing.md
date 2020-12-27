@@ -68,4 +68,5 @@
 |125     |ETS1    |BearOfWhere      |Pixies stealing items     |
 |129     |SEA     |Terus_           |Bugged conveyor belt      |
 |138     |SEA     |Mugoletti        |Item refund after rollback|
+|206     |SEA     |xdaax            |Missing nether portal     |
 
