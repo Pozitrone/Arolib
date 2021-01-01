@@ -70,3 +70,4 @@
 |138     |SEA     |Mugoletti        |Item refund after rollback|
 |206     |SEA     |xdaax            |Missing nether portal     |
 |209     |SB2     |ahojczech        |Connection issues         |
+|212     |CC      |Theo2105         |Item refund               |
