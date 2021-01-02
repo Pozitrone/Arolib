@@ -89,3 +89,4 @@
 > |ID      |Server  |Name             |Issue                     |
 > |:------:|:------:|-----------------|--------------------------|
 > |1       |CC      |resonate01       |Autoclickers in MP        |
+> |3       |CC      |Astroos          |Inventory rollback        |
