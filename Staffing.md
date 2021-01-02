@@ -48,26 +48,44 @@
 # Now the MysticalMachines era begins!  
 
 ### Bans  
-|ID      |Server  |Name             |Length      |Reason                    |
-|:------:|:------:|-----------------|:----------:|--------------------------|
+> #### 2020
+> |ID      |Server  |Name             |Length      |Reason                    |
+> |:------:|:------:|-----------------|:----------:|--------------------------|
+> #### 2021
+> |ID      |Server  |Name             |Length      |Reason                    |
+> |:------:|:------:|-----------------|:----------:|--------------------------|
 
 ### Mutes  
-|ID      |Server  |Name             |Length      |Reason                    |
-|:------:|:------:|-----------------|:----------:|--------------------------|
+> #### 2020
+> |ID      |Server  |Name             |Length      |Reason                    |
+> |:------:|:------:|-----------------|:----------:|--------------------------|
+> #### 2021
+> |ID      |Server  |Name             |Length      |Reason                    |
+> |:------:|:------:|-----------------|:----------:|--------------------------|
 
 
 ### Warns  
-|ID      |Server  |Name             |Reason                    |
-|:------:|:------:|-----------------|--------------------------|
-|32      |SB      |KWTAhmady249     |Bypassing the AFK timer   |
+> #### 2020
+> |ID      |Server  |Name             |Reason                    |
+> |:------:|:------:|-----------------|--------------------------|
+> |32      |SB      |KWTAhmady249     |Bypassing the AFK timer   |
+> #### 2021
+> |ID      |Server  |Name             |Reason                    |
+> |:------:|:------:|-----------------|--------------------------|
 
 
 ### Tickets  
-|ID      |Server  |Name             |Issue                     |
-|:------:|:------:|-----------------|--------------------------|
-|125     |ETS1    |BearOfWhere      |Pixies stealing items     |
-|129     |SEA     |Terus_           |Bugged conveyor belt      |
-|138     |SEA     |Mugoletti        |Item refund after rollback|
-|206     |SEA     |xdaax            |Missing nether portal     |
-|209     |SB2     |ahojczech        |Connection issues         |
-|212     |CC      |Theo2105         |Item refund               |
+> #### 2020
+> |ID      |Server  |Name             |Issue                     |
+> |:------:|:------:|-----------------|--------------------------|
+> |125     |ETS1    |BearOfWhere      |Pixies stealing items     |
+> |129     |SEA     |Terus_           |Bugged conveyor belt      |
+> |138     |SEA     |Mugoletti        |Item refund after rollback|
+> |206     |SEA     |xdaax            |Missing nether portal     |
+> |209     |SB2     |ahojczech        |Connection issues         |
+> |212     |CC      |Theo2105         |Item refund               |
+>
+> #### 2021
+> |ID      |Server  |Name             |Issue                     |
+> |:------:|:------:|-----------------|--------------------------|
+> |1       |CC      |resonate01       |Autoclickers in MP        |
