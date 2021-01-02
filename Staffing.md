@@ -72,6 +72,7 @@
 > #### 2021
 > |ID      |Server  |Name             |Reason                    |
 > |:------:|:------:|-----------------|--------------------------|
+> |38      |SB      |wastedplum       |Swastikas aren't allowed  |
 
 
 ### Tickets  
