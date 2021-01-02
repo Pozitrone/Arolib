@@ -89,4 +89,5 @@
 > |ID      |Server  |Name             |Issue                     |
 > |:------:|:------:|-----------------|--------------------------|
 > |1       |CC      |resonate01       |Autoclickers in MP        |
+> |2       |CC      |pandapie815      |Body retrieval and refund |
 > |3       |CC      |Astroos          |Inventory rollback        |
