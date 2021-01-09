@@ -93,3 +93,4 @@
 > |2       |CC      |pandapie815      |Body retrieval and refund |
 > |3       |CC      |Astroos          |Inventory rollback        |
 > |4       |CC      |CrafterCZ        |Broken miniturization     |
+> |8       |CC      |evilintent       |Compact machines exchange |
