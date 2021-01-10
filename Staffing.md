@@ -94,3 +94,4 @@
 > |3       |CC      |Astroos          |Inventory rollback        |
 > |4       |CC      |CrafterCZ        |Broken miniturization     |
 > |8       |CC      |evilintent       |Compact machines exchange |
+> |9       |SB      |Beratgoncu       |AE2 Connection Issues     |
